@@ -95,6 +95,8 @@ export interface ITool {
 
 export interface ISiteConfig {
   name: string
+  role: string
+  bg: string
   description: string
   image: string
   links: ILinks

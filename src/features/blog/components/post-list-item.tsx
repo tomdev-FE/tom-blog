@@ -32,16 +32,9 @@ export const PostListItem = (props: PostListItemProps) => {
               <div>
                 <h2 className="text-lg font-bold">{title}</h2>
                 <p className="mb-2 text-sm text-gray-400">
-                  Published on {formatDate(createdTime)} • {timeToRead} min read
+                  Released on {formatDate(createdTime)}
                 </p>
               </div>
-              {thumbnail && (
-                <CoverImage
-                  src={thumbnail}
-                  className="block sm:hidden"
-                  alt={title}
-                />
-              )}
             </div>
             <p className="mb-3 text-sm">{summary}</p>
             <div className="flex flex-wrap gap-2">
@@ -53,13 +46,6 @@ export const PostListItem = (props: PostListItemProps) => {
                 ))}
             </div>
           </div>
-          {thumbnail && (
-            <CoverImage
-              src={thumbnail}
-              className="hidden sm:block"
-              alt={title}
-            />
-          )}
         </div>
       </li>
     </Link>

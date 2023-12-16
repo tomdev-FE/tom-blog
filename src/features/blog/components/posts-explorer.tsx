@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import { useUpdateQueryStringValueWithoutNavigation } from "@/hooks"
 import { TPost, TPosts } from "@/types"
@@ -68,19 +69,67 @@ export const PostsExplorer = (props: PostsExplorerProps) => {
 
   return (
     <div>
-      <div className="container mb-10 max-w-3xl">
+      <div className="flex items-baseline">
+        <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+          <div className="flex max-w-[980px] flex-col items-start gap-2">
+            <div className="flex items-center">
+              <div className="mr-2 text-red-500">#</div>
+              <h3 className="mx-0 text-[1.4rem] font-normal">About</h3>
+            </div>
+
+            <p className="text-muted-foreground">My name is Tuan Le - Tom.</p>
+            <p className="text-muted-foreground">
+              I have been working as a software engineer with expertise in
+              frontend development.
+            </p>
+            <p className=" text-muted-foreground">
+              I&apos;m finding a tech Startup to join. If you need a Frontend
+              Developer, contact me.
+            </p>
+          </div>
+        </section>
+        <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+          <div className="flex max-w-[980px] flex-col items-start gap-2">
+            <div className="flex items-center">
+              <div className="mr-2 text-red-500">#</div>
+              <h3 className="mx-0 text-[1.4rem] font-normal">Contact</h3>
+            </div>
+            <Link
+              className="text-muted-foreground"
+              href={"tuanln.dev@gmail.com"}
+            >
+              Email: tuanln.dev@gmail.com
+            </Link>
+            <Link
+              className="text-muted-foreground"
+              href={"https://www.linkedin.com/feed/"}
+            >
+              Linkedin: https://www.linkedin.com/feed/
+            </Link>
+            <Link
+              className="text-muted-foreground"
+              href={"https://github.com/tomdev-FE"}
+            >
+              {" "}
+              Github: https://github.com/tomdev-FE
+            </Link>
+          </div>
+        </section>
+      </div>
+      <div className="container mb-10 ml-0 max-w-md">
         <SearchBar
           value={searchValue}
           onChange={(event) => setSearchValue(event.currentTarget.value)}
         />
       </div>
       <div className="container mb-6 max-w-6xl">
-        <h2 className="mb-5 text-xl font-bold">Search blog by topics</h2>
         <TagsSelect
           tags={tags}
           selectedTags={selectedTags}
           handleTagClick={handleTagClick}
         />
+        <h2 className="mb-5 text-xl font-bold">Posts</h2>
+
         {filteredPosts && (
           <PostsList posts={filteredPosts.slice(0, numberDisplayedPosts)} />
         )}

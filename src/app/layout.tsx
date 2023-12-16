@@ -1,8 +1,7 @@
 import { Metadata } from "next"
 import localFont from "next/font/local"
-import { Footer, Header, ThemeProvider } from "@/components"
+import { Footer, ThemeProvider } from "@/components"
 import { REVALIDATE_TIME, siteConfig } from "@/config"
-import { Analytics } from "@vercel/analytics/react"
 import "@/styles/globals.css"
 import "@/styles/notion.css"
 
@@ -44,10 +43,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${display.variable}`}>
       <body>
-        <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <Header />
-          <div className="min-h-[calc(100vh-64px)]">{children}</div>
+          {/* <Header /> */}
+          <div className="m-auto min-h-[calc(100vh-64px)] max-w-[900px]">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

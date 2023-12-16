@@ -35,13 +35,10 @@ export const SearchBar = (props: SearchBarProps) => {
         type="search"
         value={value}
         onChange={onChange}
-        placeholder="Search a post, a topic, a keyword..."
+        placeholder="Search..."
         className="rounded-2xl px-12 py-7"
         ref={inputRef}
       />
-      <span className="absolute inset-y-0 right-8 z-[-1] my-auto h-6 w-6 text-gray-500">
-        ctrl+k
-      </span>
     </div>
   )
 }

@@ -2,7 +2,8 @@ import React from "react"
 import { PostsExplorer, getAllTags } from "@/features/blog"
 import { generateRssFeed } from "@/utils/rss"
 import { filterPublishedPosts, getAllPosts } from "@/lib/notion"
-
+import ProfileCard from "@/components/profile-card"
+import Banner from "@/components/banner"
 async function getData() {
   await generateRssFeed()
   const posts = await getAllPosts({ includePages: false })
@@ -23,10 +24,12 @@ const Blog = async () => {
   }
 
   return (
-    <div className="pt-8">
-      <h1 className="mb-4 text-center	text-4xl font-bold">
+    <div>
+      {/* <h1 className="mb-4 text-center	text-4xl font-bold">
         Learn development with great articles.
-      </h1>
+      </h1> */}
+      <Banner />
+      <ProfileCard />
       <PostsExplorer posts={posts} tags={tags} />
     </div>
   )

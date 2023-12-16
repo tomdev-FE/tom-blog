@@ -1,7 +1,9 @@
 import { ISiteConfig } from "@/types"
 
 export const siteConfig: ISiteConfig = {
-  name: "Notionfol.io", // shown in the header
+  name: "Notionfol.io", // shown in the header,
+  role: "Frontend Developer",
+  bg: "/bg.jpg",
   description:
     "Make your own personal website with portfolio , blog, courses and more using notion as a CMS, in minutes with Next.js and Vercel.",
   image: "/images/screenshots/screenshot01.png",
