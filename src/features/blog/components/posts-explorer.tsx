@@ -3,7 +3,9 @@
 import React from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { useUpdateQueryStringValueWithoutNavigation } from "@/hooks"
+import { Github, Linkedin, Mail } from "@/assets/icons"
+import { siteConfig } from "@/config"
+import { useUpdateQueryStringValueWithoutNavigation } from "@/hooks/use-update-query"
 import { TPost, TPosts } from "@/types"
 import { useInView } from "framer-motion"
 import { PostsList } from "./posts-list"
@@ -14,6 +16,11 @@ interface PostsExplorerProps {
   posts: TPosts
   tags: string[]
 }
+const name = siteConfig.name
+const mail = siteConfig.links.mail
+const github = siteConfig.links.github
+const mailLabel = siteConfig.mailLabel
+const linkedin = siteConfig.links.linkedin
 
 export const PostsExplorer = (props: PostsExplorerProps) => {
   const { posts, tags } = props
@@ -69,49 +76,54 @@ export const PostsExplorer = (props: PostsExplorerProps) => {
 
   return (
     <div>
-      <div className="flex items-baseline">
+      <div className="flex flex-col items-baseline md:flex-row	">
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-          <div className="flex max-w-[980px] flex-col items-start gap-2">
+          <div className="flex flex-col items-start gap-2">
             <div className="flex items-center">
               <div className="mr-2 text-red-500">#</div>
-              <h3 className="mx-0 text-[1.4rem] font-normal">About</h3>
+              <h3 className="mx-0 text-xl font-bold leading-7">About</h3>
             </div>
 
-            <p className="text-muted-foreground">My name is Tuan Le - Tom.</p>
+            <p className="text-muted-foreground">
+              I&apos;m <strong> {name}</strong>
+            </p>
             <p className="text-muted-foreground">
               I have been working as a software engineer with expertise in
-              frontend development.
+              <strong> Frontend/UI Development</strong>.
             </p>
             <p className=" text-muted-foreground">
-              I&apos;m finding a tech Startup to join. If you need a Frontend
-              Developer, contact me.
+              I&apos;m finding a <strong>Tech Startup</strong> to join. If you
+              need a Frontend Developer, contact me.
             </p>
           </div>
         </section>
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-          <div className="flex max-w-[980px] flex-col items-start gap-2">
+          <div className="flex flex-col items-start gap-2">
             <div className="flex items-center">
               <div className="mr-2 text-red-500">#</div>
-              <h3 className="mx-0 text-[1.4rem] font-normal">Contact</h3>
+              <h3 className="mx-0 text-xl font-bold leading-7">Contact</h3>
             </div>
             <Link
-              className="text-muted-foreground"
-              href={"tuanln.dev@gmail.com"}
+              className="text-muted-foreground flex"
+              href={mail}
+              target="_blank"
             >
-              Email: tuanln.dev@gmail.com
+              <Mail className="mr-1" /> {mailLabel}
             </Link>
             <Link
-              className="text-muted-foreground"
-              href={"https://www.linkedin.com/feed/"}
+              className="text-muted-foreground flex"
+              href={linkedin}
+              target="_blank"
             >
-              Linkedin: https://www.linkedin.com/feed/
+              <Linkedin className="mr-1" /> {linkedin}
             </Link>
             <Link
-              className="text-muted-foreground"
-              href={"https://github.com/tomdev-FE"}
+              className="text-muted-foreground flex"
+              href={github}
+              target="_blank"
             >
               {" "}
-              Github: https://github.com/tomdev-FE
+              <Github className="mr-1" /> {github}
             </Link>
           </div>
         </section>

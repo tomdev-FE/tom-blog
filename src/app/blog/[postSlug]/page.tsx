@@ -8,6 +8,10 @@ import { getPostBlocks } from "@/lib/notion/get-post-blocks"
 
 const timeToRead = 3
 
+
+const element = React.createElement('h1', null, 'Hello, JSX!');
+
+
 export async function generateStaticParams() {
   const posts = await getAllPosts({ includePages: false })
 

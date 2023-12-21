@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import localFont from "next/font/local"
-import { Footer, ThemeProvider } from "@/components"
+import { Header, ThemeProvider, Footer } from "@/components"
 import { REVALIDATE_TIME, siteConfig } from "@/config"
 import "@/styles/globals.css"
 import "@/styles/notion.css"
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  // description: siteConfig.description,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: siteConfig.image,
-  },
+  // openGraph: {
+  //   title: siteConfig.name,
+  //   description: siteConfig.description,
+  //   images: siteConfig.image,
+  // },
 }
 
 const display = localFont({
@@ -42,10 +42,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${display.variable}`}>
-      <body>
+      <body className="m-auto max-w-[900px]">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {/* <Header /> */}
-          <div className="m-auto min-h-[calc(100vh-64px)] max-w-[900px]">{children}</div>
+          <Header />
+          <div className="min-h-[calc(100vh-64px)]">{children}</div>
           <Footer />
         </ThemeProvider>
       </body>

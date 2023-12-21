@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import { siteConfig } from "@/config/site"
-import { ThemeToggle } from "./header/theme-toggle"
+// import { ThemeToggle } from "./header/theme-toggle"
 
 type Props = {}
 
@@ -17,9 +17,6 @@ const ProfileCard: React.FC<Props> = () => {
           <div className="text-sm">{siteConfig.role}</div>
         </div>
       </div>
-      <div className="flex items-end space-x-2">
-              <ThemeToggle />
-            </div>
     </div>
   )
 }

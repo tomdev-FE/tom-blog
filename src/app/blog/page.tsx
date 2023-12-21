@@ -25,9 +25,6 @@ const Blog = async () => {
 
   return (
     <div>
-      {/* <h1 className="mb-4 text-center	text-4xl font-bold">
-        Learn development with great articles.
-      </h1> */}
       <Banner />
       <ProfileCard />
       <PostsExplorer posts={posts} tags={tags} />
