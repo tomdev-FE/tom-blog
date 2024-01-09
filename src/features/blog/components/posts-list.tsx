@@ -16,7 +16,6 @@ export const PostsList = (props: PostsListProps) => {
           href={`/blog/${post.slug}`}
           title={post.title}
           createdTime={post.createdTime}
-          timeToRead={4}
           summary={post.summary}
           thumbnail={post?.thumbnail}
           tags={post.tags}

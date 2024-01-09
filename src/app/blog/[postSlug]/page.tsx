@@ -6,12 +6,6 @@ import { Badge } from "@/components/ui"
 import { filterPublishedPosts, getAllPosts } from "@/lib/notion"
 import { getPostBlocks } from "@/lib/notion/get-post-blocks"
 
-const timeToRead = 3
-
-
-const element = React.createElement('h1', null, 'Hello, JSX!');
-
-
 export async function generateStaticParams() {
   const posts = await getAllPosts({ includePages: false })
 
@@ -49,8 +43,6 @@ const PostPage = async (props: PostPageProps) => {
       <h1 className="mb-4 text-4xl font-bold">{post.title}</h1>
       <div className="flex items-center space-x-2">
         <p>Published in {formatDate(post.createdTime)}</p>
-        <p>•</p>
-        <p>{timeToRead} min read</p>
         <p>•</p>
         <div className="flex space-x-1">
           {post.tags && post.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}

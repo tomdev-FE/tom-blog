@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { cn, formatDate } from "@/utils"
 import { Badge } from "@/components/ui"
@@ -10,14 +9,13 @@ interface PostListItemProps {
   href: string
   title: string
   createdTime: string
-  timeToRead: number
   summary?: string
   tags?: string[]
   thumbnail?: string
 }
 
 export const PostListItem = (props: PostListItemProps) => {
-  const { href, title, createdTime, timeToRead, summary, tags, thumbnail } =
+  const { href, title, createdTime, summary, tags } =
     props
 
   return (
@@ -49,28 +47,5 @@ export const PostListItem = (props: PostListItemProps) => {
         </div>
       </li>
     </Link>
-  )
-}
-
-interface CoverImageProps {
-  src: string
-  alt: string
-  className: string
-}
-
-const CoverImage = (props: CoverImageProps) => {
-  const { src, alt, className } = props
-  return (
-    <Image
-      src={src}
-      width={112}
-      height={112}
-      loading="lazy"
-      className={cn(
-        "aspect-[auto 112 / 112] h-[80px] w-[80px] rounded border-2 border-slate-200/10 object-cover transition group-hover:border-slate-200/30 sm:h-[112px] sm:w-[112px]",
-        className
-      )}
-      alt={alt}
-    />
   )
 }
